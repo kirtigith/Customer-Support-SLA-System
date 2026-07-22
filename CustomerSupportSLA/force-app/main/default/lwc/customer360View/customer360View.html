@@ -1,0 +1,158 @@
+<template>
+
+    <lightning-card
+        title="Customer 360 View"
+        icon-name="standard:contact">
+
+        <template if:true={customerData}>
+
+            <div class="slds-p-around_medium">
+
+                <!-- Customer Information -->
+
+                <template if:true={hasCustomer}>
+
+                    <lightning-card
+                        title="Customer Information"
+                        icon-name="standard:contact">
+
+                        <div class="slds-p-around_medium">
+
+                            <p><strong>Name:</strong> {customerData.contact.Name}</p>
+                            <p><strong>Email:</strong> {customerData.contact.Email}</p>
+                            <p><strong>Phone:</strong> {customerData.contact.Phone}</p>
+
+                        </div>
+
+                    </lightning-card>
+
+                </template>
+
+                <template if:false={hasCustomer}>
+
+                    <div class="slds-p-around_large slds-align_absolute-center">
+
+                        <p>No Customer Found</p>
+
+                    </div>
+
+                </template>
+
+                <br/>
+
+                <!-- Account Information -->
+
+                <template if:true={customerData.account}>
+
+                    <lightning-card
+                        title="Account Information"
+                        icon-name="standard:account">
+
+                        <div class="slds-p-around_medium">
+
+                            <p><strong>Account:</strong> {customerData.account.Name}</p>
+                            <p><strong>Industry:</strong> {customerData.account.Industry}</p>
+                            <p><strong>Website:</strong> {customerData.account.Website}</p>
+                            <p><strong>Phone:</strong> {customerData.account.Phone}</p>
+
+                        </div>
+
+                    </lightning-card>
+
+                </template>
+
+                <br/>
+
+                <!-- Previous Cases -->
+
+                <lightning-card
+                    title="Previous Cases"
+                    icon-name="standard:case">
+
+                    <template if:true={hasPreviousCases}>
+
+                        <lightning-datatable
+                            key-field="Id"
+                            data={customerData.previousCases}
+                            columns={columns}
+                            hide-checkbox-column>
+
+                        </lightning-datatable>
+
+                    </template>
+
+                    <template if:false={hasPreviousCases}>
+
+                        <div class="slds-p-around_large slds-align_absolute-center">
+
+                            <p>No Previous Cases</p>
+
+                        </div>
+
+                    </template>
+
+                </lightning-card>
+
+                <br/>
+
+                <!-- Customer Feedback -->
+
+                <lightning-card
+                    title="Customer Feedback"
+                    icon-name="standard:feedback">
+
+                    <template if:true={hasFeedback}>
+
+                        <template
+                            for:each={customerData.feedbackList}
+                            for:item="feedback">
+
+                            <div
+                                key={feedback.Id}
+                                class="caseBox">
+
+                                <p class="stars">
+                                    ★★★★★
+                                </p>
+
+                                <p>
+                                    {feedback.Comments__c}
+                                </p>
+
+                            </div>
+
+                        </template>
+
+                    </template>
+
+                    <template if:false={hasFeedback}>
+
+                        <div class="slds-p-around_large slds-align_absolute-center">
+
+                            <p>No Feedback Available</p>
+
+                        </div>
+
+                    </template>
+
+                </lightning-card>
+
+            </div>
+
+        </template>
+
+        <!-- No Customer360 Data -->
+
+        <template if:false={customerData}>
+
+            <div class="slds-p-around_large slds-align_absolute-center">
+
+                <p>No Customer Data Found</p>
+
+            </div>
+
+        </template>
+
+    </lightning-card>
+
+</template>

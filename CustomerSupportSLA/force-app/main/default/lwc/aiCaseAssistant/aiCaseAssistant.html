@@ -1,0 +1,53 @@
+<template>
+
+    <lightning-card
+        title="AI Case Assistant"
+        icon-name="utility:einstein">
+
+        <div class="container">
+
+            <lightning-textarea
+                label="Customer Message"
+                value={message}
+                onchange={handleMessageChange}
+                placeholder="Enter customer issue here...">
+            </lightning-textarea>
+
+            <br/>
+
+            <lightning-button
+                label="Analyze Case"
+                variant="brand"
+                onclick={analyzeCase}>
+            </lightning-button>
+
+            <template if:true={result}>
+
+                <div class="resultBox">
+
+                    <h2>Prediction Result</h2>
+
+                    <p>
+                        <strong>Category :</strong>
+                        {result.category}
+                    </p>
+
+                    <p>
+                        <strong>Priority :</strong>
+                        {result.priority}
+                    </p>
+
+                    <p>
+                        <strong>Assigned Team :</strong>
+                        {result.team}
+                    </p>
+
+                </div>
+
+            </template>
+
+        </div>
+
+    </lightning-card>
+
+</template>

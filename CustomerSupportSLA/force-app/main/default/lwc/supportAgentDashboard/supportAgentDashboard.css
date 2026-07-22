@@ -1,0 +1,45 @@
+.dashboard{
+    padding:15px;
+}
+
+.card{
+    background:white;
+    border-radius:12px;
+    text-align:center;
+    padding:20px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.10);
+    transition:all 0.3s ease;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.20);
+}
+
+h3{
+    margin-top:10px;
+    font-size:18px;
+    font-weight:600;
+}
+
+h1{
+    margin-top:10px;
+    font-size:34px;
+    font-weight:bold;
+}
+
+.total{
+    border-left:6px solid #1589EE;
+}
+
+.open{
+    border-left:6px solid #2E844A;
+}
+
+.priority{
+    border-left:6px solid #E69500;
+}
+
+.breach{
+    border-left:6px solid #C23934;
+}

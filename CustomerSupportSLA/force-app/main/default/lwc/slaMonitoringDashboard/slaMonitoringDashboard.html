@@ -1,0 +1,128 @@
+<template>
+
+    <!-- Show dashboard only after Apex returns data -->
+    <template if:true={dashboard}>
+
+        <lightning-card
+            title="SLA Monitoring Dashboard"
+            icon-name="standard:dashboard">
+
+            <lightning-layout multiple-rows>
+
+                <!-- SLA Compliance -->
+
+                <lightning-layout-item
+                    size="12"
+                    medium-device-size="6"
+                    large-device-size="3"
+                    padding="around-small">
+
+                    <div class="card compliance">
+
+                        <lightning-icon
+                            icon-name="utility:success"
+                            size="medium">
+                        </lightning-icon>
+
+                        <h3>SLA Compliance</h3>
+
+                        <h1>{dashboard.compliancePercentage}%</h1>
+
+                    </div>
+
+                </lightning-layout-item>
+
+                <!-- Average Resolution -->
+
+                <lightning-layout-item
+                    size="12"
+                    medium-device-size="6"
+                    large-device-size="3"
+                    padding="around-small">
+
+                    <div class="card resolution">
+
+                        <lightning-icon
+                            icon-name="utility:clock"
+                            size="medium">
+                        </lightning-icon>
+
+                        <h3>Average Resolution</h3>
+
+                        <h1>{dashboard.averageResolutionHours} Hours</h1>
+
+                    </div>
+
+                </lightning-layout-item>
+
+                <!-- Breached Cases -->
+
+                <lightning-layout-item
+                    size="12"
+                    medium-device-size="6"
+                    large-device-size="3"
+                    padding="around-small">
+
+                    <div class="card breach">
+
+                        <lightning-icon
+                            icon-name="utility:warning"
+                            size="medium">
+                        </lightning-icon>
+
+                        <h3>Breached Cases</h3>
+
+                        <h1>{dashboard.breachedCases}</h1>
+
+                    </div>
+
+                </lightning-layout-item>
+
+                <!-- Average Rating -->
+
+                <lightning-layout-item
+                    size="12"
+                    medium-device-size="6"
+                    large-device-size="3"
+                    padding="around-small">
+
+                    <div class="card rating">
+
+                        <lightning-icon
+                            icon-name="utility:favorite"
+                            size="medium">
+                        </lightning-icon>
+
+                        <h3>Average Rating</h3>
+
+                        <h1>{dashboard.averageRating}</h1>
+
+                    </div>
+
+                </lightning-layout-item>
+
+            </lightning-layout>
+
+        </lightning-card>
+
+    </template>
+
+    <!-- Loading State -->
+
+    <template if:true={hasNoData}>
+
+    <lightning-card
+        title="SLA Monitoring Dashboard"
+        icon-name="standard:dashboard">
+
+        <div class="slds-p-around_large slds-align_absolute-center">
+
+            <p>No SLA Data Available</p>
+
+        </div>
+
+    </lightning-card>
+
+</template>
+
+</template>

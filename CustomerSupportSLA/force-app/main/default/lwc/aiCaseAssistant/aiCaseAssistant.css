@@ -1,0 +1,41 @@
+.container{
+
+    padding:20px;
+
+}
+
+.resultBox{
+
+    margin-top:25px;
+
+    padding:20px;
+
+    border-radius:12px;
+
+    background:#f4f6f9;
+
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+
+}
+
+.resultBox h2{
+
+    margin-bottom:15px;
+
+    color:#0176d3;
+
+}
+
+.resultBox p{
+
+    font-size:16px;
+
+    margin:10px 0;
+
+}
+
+lightning-button{
+
+    margin-top:15px;
+
+}

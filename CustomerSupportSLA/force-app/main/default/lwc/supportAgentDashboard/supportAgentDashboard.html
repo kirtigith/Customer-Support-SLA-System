@@ -1,0 +1,142 @@
+<template>
+
+    <!-- Loading Spinner -->
+
+    <template if:true={isLoading}>
+
+        <lightning-spinner
+            alternative-text="Loading Dashboard"
+            size="large">
+        </lightning-spinner>
+
+    </template>
+
+    <!-- Dashboard -->
+
+    <template if:false={isLoading}>
+
+        <lightning-card
+            title="Support Agent Dashboard"
+            icon-name="standard:case">
+
+            <template if:true={dashboard}>
+
+                <div class="dashboard">
+
+                    <lightning-layout multiple-rows>
+
+                        <!-- Total Cases -->
+
+                        <lightning-layout-item
+                            size="12"
+                            medium-device-size="6"
+                            large-device-size="3"
+                            padding="around-small">
+
+                            <div class="card total">
+
+                                <lightning-icon
+                                    icon-name="standard:case"
+                                    size="medium">
+                                </lightning-icon>
+
+                                <h3>Total Cases</h3>
+
+                                <h1>{dashboard.totalCases}</h1>
+
+                            </div>
+
+                        </lightning-layout-item>
+
+                        <!-- Open Cases -->
+
+                        <lightning-layout-item
+                            size="12"
+                            medium-device-size="6"
+                            large-device-size="3"
+                            padding="around-small">
+
+                            <div class="card open">
+
+                                <lightning-icon
+                                    icon-name="utility:open_folder"
+                                    size="medium">
+                                </lightning-icon>
+
+                                <h3>Open Cases</h3>
+
+                                <h1>{dashboard.openCases}</h1>
+
+                            </div>
+
+                        </lightning-layout-item>
+
+                        <!-- High Priority -->
+
+                        <lightning-layout-item
+                            size="12"
+                            medium-device-size="6"
+                            large-device-size="3"
+                            padding="around-small">
+
+                            <div class="card priority">
+
+                                <lightning-icon
+                                    icon-name="utility:priority"
+                                    size="medium">
+                                </lightning-icon>
+
+                                <h3>High Priority</h3>
+
+                                <h1>{dashboard.highPriorityCases}</h1>
+
+                            </div>
+
+                        </lightning-layout-item>
+
+                        <!-- SLA Breached -->
+
+                        <lightning-layout-item
+                            size="12"
+                            medium-device-size="6"
+                            large-device-size="3"
+                            padding="around-small">
+
+                            <div class="card breach">
+
+                                <lightning-icon
+                                    icon-name="utility:warning"
+                                    size="medium">
+                                </lightning-icon>
+
+                                <h3>SLA Breached</h3>
+
+                                <h1>{dashboard.slaBreachedCases}</h1>
+
+                            </div>
+
+                        </lightning-layout-item>
+
+                    </lightning-layout>
+
+                </div>
+
+            </template>
+
+            <!-- No Data Found -->
+
+            <template if:false={dashboard}>
+
+                <div class="slds-p-around_large slds-align_absolute-center">
+
+                    <p>No Dashboard Data Found</p>
+
+                </div>
+
+            </template>
+
+        </lightning-card>
+
+    </template>
+
+</template>
